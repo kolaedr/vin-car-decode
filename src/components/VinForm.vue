@@ -1,15 +1,20 @@
 <script setup>
-import { computed, ref } from "vue";
+import { computed, ref, onMounted } from "vue";
 import API from "../service/api";
+import {useRoute, useRouter} from 'vue-router';
 
 const vin = ref(null);
 const carInfo = ref(null);
+const route = useRoute()
+const router = useRouter()
 
-const getVinData = async () => {
+const getVinData = async (vinCode) => {
   try {
-    const { data } = await API.get(`https://vpic.nhtsa.dot.gov/api/vehicles/decodevin/${vin.value}?format=json`);
+    const VIN_CODE = vinCode ? vinCode : vin.value
+    const { data } = await API.get(`https://vpic.nhtsa.dot.gov/api/vehicles/decodevin/${VIN_CODE}?format=json`);
     carInfo.value = data;
-    vin.value = null;
+    vin.value = VIN_CODE;
+    router.replace({query: {vin: VIN_CODE}})
   } catch (error) {}
 };
 
@@ -19,6 +24,13 @@ const result = computed(() => {
   const arr = Array.isArray(carInfo.value?.Results) ? carInfo.value.Results : [];
   return arr.filter(el => !expect.includes(el.Variable)).filter((el) => (!showEmpty.value ? !!el.Value : true));
 });
+
+onMounted(() => {
+  console.log('route :>> ', route.query?.vin);
+  if (route.query?.vin) {
+    getVinData(route.query?.vin)
+  }
+})
 </script>
 
 <template>
