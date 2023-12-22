@@ -26,7 +26,6 @@ const result = computed(() => {
 });
 
 onMounted(() => {
-  console.log('route :>> ', route.query?.vin);
   if (route.query?.vin) {
     getVinData(route.query?.vin)
   }

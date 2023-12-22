@@ -2,6 +2,7 @@ const routes = [
   {
     path: '/',
     name: 'home',
+    redirect: {name: 'search'},
     component: () => import('../views/HomePage.vue'),
     meta: {
       title: 'Home'
