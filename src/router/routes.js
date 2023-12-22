@@ -1,6 +1,6 @@
 const routes = [
   {
-    path: '/',
+    path: '/vin-car-decode/',
     name: 'home',
     redirect: {name: 'search'},
     component: () => import('../views/HomePage.vue'),
@@ -9,7 +9,7 @@ const routes = [
     }
   },
   {
-    path: '/search',
+    path: '/vin-car-decode/search',
     name: 'search',
     component: () => import('../views/SearchVin.vue'),
     meta: {
