@@ -3,7 +3,7 @@ import routes from './routes';
 
 const router = createRouter({
   // base: '/vin-car-decode',
-  history: createWebHistory(),
+  history: createWebHistory('/vin-car-decode/'),
   routes,
   scrollBehavior(to, from, savedPosition) {
     if (savedPosition) {
