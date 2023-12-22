@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import routes from './routes';
 
 const router = createRouter({
-  base: '/vin-car-decode',
+  // base: '/vin-car-decode',
   history: createWebHistory(),
   routes,
   scrollBehavior(to, from, savedPosition) {
