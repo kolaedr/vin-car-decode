@@ -9,6 +9,7 @@ import { Theme } from '@radix-ui/themes'
 import '@radix-ui/themes/styles.css'
 import { LanguageProvider } from './context/LanguageContext.jsx'
 
+const base = (import.meta.env.BASE_URL || '/').replace(/\/$/, '')
 const router = createBrowserRouter([
   {
     path: '/',
@@ -18,7 +19,7 @@ const router = createBrowserRouter([
       { path: ':vin?', element: <Search /> },
     ],
   },
-], { basename: import.meta.env.BASE_URL || '/' })
+], { basename: base })
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
