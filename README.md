@@ -1,7 +1,27 @@
-# Vue 3 + Vite
+# VIN Car Decode (React + Vite + Tailwind + Radix UI)
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+Simple VIN decoder using NHTSA API.
 
-## Recommended IDE Setup
+## Scripts
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+- `npm run dev` – start dev server
+- `npm run build` – production build (Vite, base `/vin-car-decode/`)
+- `npm run preview` – preview production build
+- `npm run deploy` – deploy `dist/` to GitHub Pages (via `gh-pages`)
+
+## Deployment (GitHub Pages)
+
+1. Ensure repository name is `vin-car-decode` or adjust `base` in `vite.config.js`.
+2. Run:
+
+```bash
+npm run build
+npm run deploy
+```
+
+Site will be available at `https://<your-username>.github.io/vin-car-decode/`.
+
+## Notes
+
+- Uses `react-router-dom` with paths `/vin-car-decode/` and `/vin-car-decode/search`.
+- Query param `?vin=...` is preserved in URL when searching.
